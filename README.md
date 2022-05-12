@@ -1,37 +1,28 @@
-# MainframeIBM_COBOL_MATCH_FILES
-
 # Project Title
 MainframeIBM_COBOL_MATCH_FILES
 
 ## Main Functionality
 
-Example of a COBOL program to perform a file matching between 2 files where file ACCT-IN could be a list of bank accouts 
-and file MOVREC contains a list of movements on these bank accounts
+Example of a COBOL program to perform a file matching between 2 files. 
 
+## Input data
 
-## Getting Started
+- file ACCT-IN is a list of bank accouts and their balance. It is the master file.
+- file MOVREC contains a list of movements on these bank accounts
 
-Hardware: 
+## Process
 
-- nRF5x series (nRF52832)
-- LIS2DH serie (eg LIS2DHTR)
+For each movement found in the mvt input file, the matching bank account balance is updated 
 
-Pinout: 
+Rules:
+- not all the bank accounts have movements
+- some movements have no related bank accounts: in this case we list an error for these movements
 
-- LIS2DHTR-SCL --> nRF52832-P0.10
-- LIS2DHTR-SCA --> nRF52832-P0.09
-- LIS2DHTR-ACC-INT1 --> nRF52832-P0.05
-- LIS2DHTR-ACC-INT2 --> nRF52832-P0.06
-
-## Installing
-- for a quick demo, put this sketch in nRF5_SDK_15.0.0_a53641a\examples\peripheral\[Your_Project]
-
-## Built With
-
-Keil V5
+## Output data
+- file ACCT-OUT is the input updated bank accounts list with updated balance
 
 ## Test
-Has been tested with nRF52-DK and custom board 
+See JCL and input files 
 
 ## Author
 https://github.com/johnmarcc
